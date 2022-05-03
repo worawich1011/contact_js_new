@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="insert.css" >
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/base64-img@1.0.4/base64-img.min.js"></script>
+    
+</head>
+<body>
+    
+    <div id="app">
+        <div class="logo2"> 
+            <a href="IT.html"><img src="imgs/FITM_LOGO.png" height="100"></a>
+            <h1 class="title"> Faculty of Industrial Technology and Management </h1>
+        </div>
+        <br />
+
+        <div class="bg3" > INFORMATION TECHNOLOGY (IT) / INFORMATION AND NETWORK ENGINEERING (INE)</a></div> <br /> <br />
+        <h2> เทคโนโลยีสารสนเทศ (IT) / เทคโนโลยีเครือข่าย (INE)</h2> <br />
+
+        <div class="bg2">
+            <div class="container"> 
+                <div>
+                    <!-- <input type="text"> -->
+
+                    <input  v-model="form.name"type="text"  name="Name EG"  class="inputregis"  placeholder="Name (English)" required> <br />
+                    <input  v-model="form.nameTH"type="text"   name="Name TH"    class="inputregis"  placeholder="Name (Thai)"   required> <br />
+
+                    <input  v-model="form.email"type="text"  name="E-mail"   class="inputregis"  placeholder="E-mail"  required> <br />
+                    <input  v-model="form.group"type="text"     name="Group"    class="inputregis"  placeholder="Group"    required>  <br />  
+                    
+                    <input  @change="onSelectImage($event.target)" type="file"  name="Image"    class="inputregis"  placeholder="Image"    required>  <br />
+
+                </div> <br /> <br />
+                <div>
+                    <button @click="onInsert()" type="button" name="submit" class="butregis">  Add  </button>     
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    Vue.createApp({
+
+        data(){
+            return{
+                form: {
+                    name: '',
+                    nameTH: '',
+                    email: '',
+                    group: '',
+                    image: '',
+                }
+            }
+        },
+        methods:{
+            onSelectImage(input) {
+                if (input.files && input.files.length > 0) {
+                    let file = input.files[0];
+                    if (file.type.indexOf('image/') >= 0) {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(file);
+                        reader.addEventListener('load', () => {
+                            this.form.image = reader.result;
+                        });
+                        return;
+                    }
+                }
+            },
+            async onInsert() {
+
+                console.log({
+                    name: this.form.name,
+                    nameTH: this.form.nameTH,
+                    email: this.form.email,
+                    group: this.form.group,
+                    img: this.form.image
+                })
+
+                await axios.post('http://localhost:5000/teacher/', this.form)
+                    .then(res=>{
+                    
+                        alert("Insert Success");
+                        window.location.href = 'edit.html';
+                    
+                    }).catch(err =>{
+                    
+                        alert("Insert Error");
+                        console.log(err);
+                    
+                    })
+
+            },
+        }
+    }).mount('#app');
+
+</script>
