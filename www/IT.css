@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: 'K2D', cursive;
     height: auto;
     width: auto;
     background-color: #EFFAFD;
@@ -66,18 +66,18 @@ body {
 #searchWrapper::after {
     content: '🔍';
     position: absolute;
-    top: 15px;
-    right: 150px;
+    top: 10px;
+    right: 190px;
 }
 
-#charactersList {
+#TeacherList {
     padding-inline-start: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 35px;
 }
 
-.character {
+.teacher {
     list-style-type: none;
     background-color: #eaeaea;
     border-radius: 5px;
@@ -91,19 +91,19 @@ body {
     text-align: left;
 }
 
-.character > h2 {
+.teacher > h2 {
     text-align: left;
     grid-area: name;
     margin-bottom: 0px;
 }
 
-.character > p {
+.teacher > p {
     grid-area: email;
     margin: 0;
     margin-top: -18px;
 }
 
-.character > img {
+.teacher > img {
     max-height: 100px;
     grid-area: image;
 }
@@ -124,7 +124,7 @@ body {
     margin-top: 20px
 }
 
-.character:hover{
+.teacher:hover{
     color: #129fea;
     transition: .6s
 }
@@ -193,12 +193,20 @@ body {
 }
 
 .pop-name{
+    font-family: 'K2D', cursive;
     font-size: 20px;
 }
 
 .pop-email{
+    font-family: 'K2D', cursive;
     font-size: 20px;
 }
+
+.pop-group{
+    font-family: 'K2D', cursive;
+    font-size: 20px;
+}
+
 
 @keyframes move {
     from{

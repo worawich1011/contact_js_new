@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: 'K2D', cursive;
     height: auto;
     width: auto;
     background-color: #EFFAFD;
@@ -133,14 +133,14 @@ button{
     
 }
 
-#charactersList {
+#TeacherList {
     padding-inline-start: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 35px;
 }
 
-.character {
+.teacher {
     list-style-type: none;
     background-color: #eaeaea;
     border-radius: 5px;
@@ -154,19 +154,19 @@ button{
     text-align: left;
 }
 
-.character > h2 {
+.teacher > h2 {
     text-align: left;
     grid-area: name;
     margin-bottom: 0px;
 }
 
-.character > p {
+.teacher > p {
     grid-area: house;
     margin: 0;
     margin-top: -18px;
 }
 
-.character > img {
+.teacher > img {
     max-height: 100px;
     grid-area: image;
 }

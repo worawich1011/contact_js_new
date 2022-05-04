@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 <body id="app">
     
     <div class="logo">
-        <img src="imgs/logo_kmutnb.png" width="100" height="95">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="IT.html"><img src="imgs/logo_kmutnb.png" height="100"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="imgs/FITM_LOGO.png" width="100" height="95" > 
     </div>
 
@@ -18,7 +20,7 @@
     <div class="bg"></div>
     <h2>Sign Up</h2> <br />
 
-    <div class="bg2">
+    <div class="bg2-1">
     <form class="container"> 
     <div>
         <input v-model="firstname"  type="text" name="First name"  class="inputregis"  placeholder="First name" required> &nbsp;&nbsp;&nbsp;
@@ -32,7 +34,7 @@
     </div>
     
         <div>
-            <button @click="register()" type="button" name="submit" class="butregis"> Register </button>     
+            <button @click="register()" type="button" name="submit" class="butregis1"> Register </button>     
         </div> 
 
     </form>   

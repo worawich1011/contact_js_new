@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="it.css">
+    <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
 
     <title>Document</title>
     <script src="https://unpkg.com/vue@3"></script>
@@ -16,7 +17,7 @@
     <div id="app">
         <br>
     <div class="logo2"> 
-        <img src="imgs/FITM_LOGO.png" height="100">
+        <a href="IT.html"><img src="imgs/FITM_LOGO.png" height="100"></a>
         <h1 class="title"> Faculty of Industrial Technology and Management </h1>
     </div>
     <br>
@@ -34,14 +35,15 @@
                     name="searchBar"
                     id="searchBar" 
                 />
+                &nbsp;&nbsp;&nbsp; <button type="button" name="submit" class=" px-5 py-2 bg-green-500 rounded-lg"> <a href="login.html"> Edit </a>  </button>
+
             </div> <br>
             <div class="container">
                 <div class="pop-cont">
-                    <ul id="charactersList">
-                        <li @click="onPopup(item)" class="character" v-for="item in teachers">                           
-                            <h2 class="name">{{ item.name}} <br> Group : {{ item.group }}</h2>                  
+                    <ul id="TeacherList">
+                        <li @click="onPopup(item)" class="teacher" v-for="item in teachers">
+                            <h2 class="name">{{ item.name}} <br> Group : {{ item.group }}</h2>  
                             <img class="img" :src="item.img"></img>
-                         
                         </li>
                     </ul> 
                 </div>
@@ -53,14 +55,25 @@
                             dataPopup.img 
                             || 
                             `https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg`"
-                        >
+                        > &nbsp;&nbsp;&nbsp; 
                         <div class="pop-body mt-24">
                             <p class="pop-name">
                                 {{ dataPopup.name }}
+                            </p> 
+
+                            <p class="pop-name">
+                                {{ dataPopup.nameTH }}
                             </p>
-                            <p class="pop-house">
+
+                            <p class="pop-email">
                                 {{ dataPopup.email }}
+                            </p> <br>
+
+                            <p class="pop-group">
+                                Group : {{ dataPopup.group }}
                             </p>
+
+
                         </div>
                     </div>
                 </div>
@@ -85,13 +98,13 @@
                 keywordSearch: ''
             }
         },
-
+        
         watch: {
             keywordSearch: function (valNew, valOld) {
                 if (valNew.length === 0) {
                     this.getTechers();
-                } else {
-                    this.onSearch();
+                } 
+                else {this.onSearch();
                 }
             }
         },

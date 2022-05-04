@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
+
     <title>Document</title>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -12,7 +14,7 @@
 <body id="app">
     
     <div class="logo"> 
-    <img src="imgs/logo_kmutnb.png" width="100" height="95">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="IT.html"><img src="imgs/logo_kmutnb.png" height="100"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="imgs/FITM_LOGO.png" width="100" height="95" > 
     </div>
 
@@ -28,9 +30,9 @@
 
         <div>
             <div>
-                <button @click="login()" type="button" name="submit" class="button">Login</button>
+                <button @click="login()" type="button" name="submit" class="button"> <a href="edit.html"style="text-decoration:none; color: black;"> Login </a> </button> &nbsp;
                 
-                <a href="regis.html" style="text-decoration:none; color: white;"> Sign up </a>
+                <button @click="register()" type="button" name="submit" class="butregis"><a href="regis.html"style="text-decoration:none; color: white;"> Signup </a></button>     
             </div>
                 
         </div>
@@ -60,7 +62,7 @@
                     if (res.data.status) {
                         alert("Login Success")
                         localStorage.setItem('data', res.data.data);
-                        window.location.href = 'index.html';
+                        window.location.href = 'edit.html';
                     } else {
                         alert("Login Error");
                     }
